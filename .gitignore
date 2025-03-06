@@ -1,0 +1,10 @@
+
+*.mp4
+/live_stream_vids
+*.npy
+/mtcnn_env
+/db
+/notebooks
+/run_log
+
+/models
