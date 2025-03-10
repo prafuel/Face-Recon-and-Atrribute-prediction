@@ -195,15 +195,17 @@ class FaceRecognitionMerged():
     def process_source(self, source=0, source_type='webcam', features=[]):
         self.features = features
         if source_type == "image":
-            frame = cv2.imread(source)
+            frame = source.copy()
+            if type(source) == str:
+                frame = cv2.imread(source)
             if frame is None:
                 print(f"Error: Could not read image at {source}")
-                return
-            results = self.analyze_frame(frame)
+                return source
+            results = self.get_face_box(frame)
             frame = self.draw_results(frame, results)
-            cv2.imwrite(f"{os.path.basename(source).split('.')[0]}_output.jpg", frame)
+            # cv2.imwrite(f"{os.path.basename(source).split('.')[0]}_output.jpg", frame)
             print("Result saved...")
-            return
+            return frame
         elif source_type == 'webcam':
             cap = cv2.VideoCapture(0)
         elif source_type == "video": 
@@ -356,7 +358,7 @@ def main():
     # choice = input("Enter here choice : ")
     choice = "3"
     
-    features = ["age", "gender", "emotion"]
+    features = ["age", "gender"]
 
     if choice == "1":
         img_path = input("Enter image path: ")

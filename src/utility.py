@@ -5,7 +5,7 @@ import time
 import os
 from sklearn.metrics.pairwise import cosine_similarity
 
-from config import config
+# from config import config
 
 # Time taken for function run
 def time_taken(func):
@@ -13,7 +13,7 @@ def time_taken(func):
         start = time.time()
         result = func(*args, **kwargs)
 
-        with open(os.path.join(config.RUN_LOG_FILE, f"func_log.txt"), "a+") as f:
+        with open(os.path.join("run_log", f"func_log.txt"), "a+") as f:
             f.write(f"time taken for function {func.__name__} : {time.time() - start}\n")
         return result
     return inner_wrapper

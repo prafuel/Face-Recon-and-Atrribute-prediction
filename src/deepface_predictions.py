@@ -1,6 +1,6 @@
 from deepface import DeepFace
 import cv2
-from utility import time_taken
+from src.utility import time_taken
 
 @time_taken
 def get_age_confidence(analysis):

@@ -11,7 +11,7 @@ from config import config
 
 # face_detection using mtcnn
 from face_recognition_inference import run_fr, fr_video
-from utility import draw_text_with_background, blur_image, time_taken
+from src.utility import draw_text_with_background, blur_image, time_taken
 
 class FaceRecognitionUsingMTCNN:
     def __init__(self):

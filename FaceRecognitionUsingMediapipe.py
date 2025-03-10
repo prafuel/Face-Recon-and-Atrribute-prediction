@@ -10,7 +10,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 from config import config
 
-from utility import draw_text_with_background, blur_image, time_taken, crop_image
+from src.utility import draw_text_with_background, blur_image, time_taken, crop_image
 
 class FaceRecognitionUsingMediapipe:
     def __init__(self):

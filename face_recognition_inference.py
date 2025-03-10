@@ -10,7 +10,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 # import copy_video_to_remote as CR
 
 from src.deepface_predictions import analyze_face
-from utility import draw_text_with_background, crop_image, time_taken
+from src.utility import draw_text_with_background, crop_image, time_taken
 
 from config import config
 
@@ -62,6 +62,7 @@ def run_fr(image):
         x, y, w, h = face['box']
         # crop image based on roi
         crop_face = crop_image(image, face['box'])
+        crop_face = np.expand_dims(crop_face, axis=0)
 
         # create face vector
         face_vector = model.predict(crop_face)
